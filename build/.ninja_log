@@ -1,0 +1,5 @@
+# ninja log v5
+0	14	0	/home/oscar/VulkanTest/build/CMakeFiles/cmake.verify_globs	691ec01e15e4a37e
+10	507	1713760865041594977	CMakeFiles/VulkanTest.dir/src/main.cpp.o	68496bf4647a55a1
+9	843	1713760865374942298	CMakeFiles/VulkanTest.dir/src/App.cpp.o	a3dd83778f0398db
+843	893	1713760865424944396	VulkanTest	4511a38bc40a0b74

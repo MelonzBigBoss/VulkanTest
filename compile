@@ -1,0 +1,8 @@
+#!/bin/bash
+
+glslc src/VertexShader/triangle.vert -o src/VertexShader/Output/vert.spv
+glslc src/FragShader/triangle.frag -o src/FragShader/Output/frag.spv
+
+cd build
+cmake -S ../
+make

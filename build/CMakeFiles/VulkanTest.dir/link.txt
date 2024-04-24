@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/VulkanTest.dir/src/Renderer.cpp.o CMakeFiles/VulkanTest.dir/src/main.cpp.o -o VulkanTest  -lglfw -lvulkan

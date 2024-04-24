@@ -1,0 +1,3 @@
+/home/oscar/VulkanTest/build/CMakeFiles/VulkanTest.dir
+/home/oscar/VulkanTest/build/CMakeFiles/edit_cache.dir
+/home/oscar/VulkanTest/build/CMakeFiles/rebuild_cache.dir
