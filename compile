@@ -3,6 +3,7 @@
 glslc src/VertexShader/triangle.vert -o src/VertexShader/Output/vert.spv
 glslc src/FragShader/triangle.frag -o src/FragShader/Output/frag.spv
 
+mkdir -p build
 cd build
 cmake -S ../
 make
