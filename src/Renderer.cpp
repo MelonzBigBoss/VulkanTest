@@ -39,9 +39,8 @@ Renderer::Renderer() {
 }
 
 Renderer::~Renderer() {
-    cleanupSwapChain();
+   cleanupSwapChain();
 
-    
   vkDestroyPipeline(device, graphicsPipeline, nullptr);
   vkDestroyPipelineLayout(device, pipelineLayout, nullptr);
   vkDestroyRenderPass(device, renderPass, nullptr);
@@ -52,15 +51,14 @@ Renderer::~Renderer() {
         vkDestroyFence(device, inFlightFences[i], nullptr);
     }
 
-    vkDestroyCommandPool(device, commandPool, nullptr);
-
-
+   vkDestroyCommandPool(device, commandPool, nullptr);
 
   vkDestroyDevice(device, nullptr);
  
   if (enableValidationLayers) {
     DestroyDebugUtilsMessengerEXT(instance, debugMessenger, nullptr);
   }
+
   vkDestroySurfaceKHR(instance, surface, nullptr);
   vkDestroyInstance(instance, nullptr);
 
@@ -439,7 +437,7 @@ multisampling.minSampleShading = 1.0f; // Optional
 multisampling.pSampleMask = nullptr; // Optional
 multisampling.alphaToCoverageEnable = VK_FALSE; // Optional
 multisampling.alphaToOneEnable = VK_FALSE; // Optional
-  //
+  
   VkPipelineColorBlendAttachmentState colorBlendAttachment{};
 colorBlendAttachment.colorWriteMask = VK_COLOR_COMPONENT_R_BIT | VK_COLOR_COMPONENT_G_BIT | VK_COLOR_COMPONENT_B_BIT | VK_COLOR_COMPONENT_A_BIT;
   colorBlendAttachment.blendEnable = VK_TRUE;
