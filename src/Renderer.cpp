@@ -975,13 +975,14 @@ VkShaderModule Renderer::createShaderModule(const std::vector<char>& code) {
 #ifdef WIN 
 std::string Renderer::getexepath() {
   char result [MAX_PATH];
-  return std::string(result, GetModuleFileName(NULL, result, MAX_PATH));
+  std::string FullPath = std::string(result, GetModuleFileName(NULL, result, MAX_PATH));
+  return FullPath.substr(0, FullPath.rfind("build\\" + 6))
 }
 #else
 std::string Renderer::getexepath() {
   char result[PATH_MAX];
   ssize_t count = readlink("/proc/self/exe", result, PATH_MAX);
   std::string FullPath = std::string(result, (count > 0) ? count : 0);
-  return FullPath.substr(0, FullPath.find_last_of("//") + 1);
+  return FullPath.substr(0, FullPath.rfind("build/") + 6);
 }
 #endif

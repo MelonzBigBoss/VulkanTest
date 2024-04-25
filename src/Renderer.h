@@ -3,8 +3,9 @@
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
 #define WIN 1
 #include <windows.h>
+#undef min
+#undef max
 #else
-#include <limits.h>
 #include <unistd.h>
 #endif
 
@@ -13,6 +14,7 @@
 
 #include<vulkan/vulkan.h>
 
+#include <limits.h>
 #include <iostream>
 #include <stdexcept>
 #include <vector>
