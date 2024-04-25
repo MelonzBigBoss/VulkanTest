@@ -1,5 +1,13 @@
 #pragma once
 
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+#define WIN 1
+#include <windows.h>
+#else
+#include <limits.h>
+#include <unistd.h>
+#endif
+
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 
@@ -33,7 +41,8 @@ class Renderer {
       "VK_LAYER_KHRONOS_validation"
     };
 
-  
+    static std::string getexepath(); 
+    std::string exepath = "";
     #ifdef NDEBUG
       const bool enableValidationLayers = false;
     #else

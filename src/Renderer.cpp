@@ -1,6 +1,9 @@
 #include "Renderer.h"
 
 Renderer::Renderer() {
+  exepath = getexepath();
+  std::cout << exepath << std::endl;
+
   // Initialize GLFW
   glfwInit();
 
@@ -355,8 +358,8 @@ dependency.dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
 }
 
 void Renderer::createGraphicsPipeline(){
-   auto vertShaderCode = readFile("build/VertexShader/vert.spv");
-   auto fragShaderCode = readFile("build/FragShader/frag.spv");
+   auto vertShaderCode = readFile(exepath + "VertexShader/vert.spv");
+   auto fragShaderCode = readFile(exepath + "FragShader/frag.spv");
 
   VkShaderModule vertShaderModule = createShaderModule(vertShaderCode);
     VkShaderModule fragShaderModule = createShaderModule(fragShaderCode);
@@ -969,3 +972,16 @@ VkShaderModule Renderer::createShaderModule(const std::vector<char>& code) {
   return shaderModule;
 }
 
+#ifdef WIN 
+std::string Renderer::getexepath() {
+  char result [MAX_PATH];
+  return std::string(result, GetModuleFileName(NULL, result, MAX_PATH));
+}
+#else
+std::string Renderer::getexepath() {
+  char result[PATH_MAX];
+  ssize_t count = readlink("/proc/self/exe", result, PATH_MAX);
+  std::string FullPath = std::string(result, (count > 0) ? count : 0);
+  return FullPath.substr(0, FullPath.find_last_of("//") + 1);
+}
+#endif
