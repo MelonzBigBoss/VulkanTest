@@ -355,8 +355,8 @@ dependency.dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
 }
 
 void Renderer::createGraphicsPipeline(){
-   auto vertShaderCode = readFile("src/VertexShader/Output/vert.spv");
-   auto fragShaderCode = readFile("src/FragShader/Output/frag.spv");
+   auto vertShaderCode = readFile("build/VertexShader/vert.spv");
+   auto fragShaderCode = readFile("build/FragShader/frag.spv");
 
   VkShaderModule vertShaderModule = createShaderModule(vertShaderCode);
     VkShaderModule fragShaderModule = createShaderModule(fragShaderCode);
@@ -741,7 +741,7 @@ int Renderer::rateDeviceSuitability(VkPhysicalDevice device) {
     // Discrete GPUs have a significant performance advantage
     if (deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU) {
         score += 1000;
-        return 0;
+      return 0;
     }
 
     // Maximum possible size of textures affects graphics quality

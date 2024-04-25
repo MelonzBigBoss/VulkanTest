@@ -2,9 +2,9 @@
 
 #include "Renderer.h"
 
-int main() {
+int main(int argc, char* argv[]) {
   std::cout<< "Program Started" << std::endl;
-
+  std::cout<<argv[0]<<std::endl; 
   Renderer* mainApp = new Renderer();
 
   try {
