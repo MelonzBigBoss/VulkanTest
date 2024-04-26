@@ -9,17 +9,12 @@
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 #include <glm/vec4.hpp>
 
-#include <limits.h>
-#include <iostream>
-#include <stdexcept>
 #include <vector>
-
-#include <limits> 
 
 #include "Mwindow.hpp"
 #include "Mdevice.hpp"
 #include "Mpipeline.hpp"
-#include "mswapchain.hpp"
+#include "Mswapchain.hpp"
 class Renderer {
   public:
     Renderer();

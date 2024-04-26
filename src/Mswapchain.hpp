@@ -4,9 +4,9 @@
 
 #include <vector>
 #include <algorithm>
+#include <limits>
 
 #include "Mdevice.hpp"
-#include "Mwindow.hpp"
 class Mswapchain {
 public:
 	static constexpr int MAX_FRAMES_IN_FLIGHT = 2;
